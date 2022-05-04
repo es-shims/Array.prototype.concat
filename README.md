@@ -20,8 +20,8 @@ Because `Array.prototype.concat` depends on a receiver (the “this” value), t
 Note: this list is not exhaustive.
 
   - Safari 10 - 13
-  - Chrome 48 - 67
-  - node 6.0 - 10.8
+  - Chrome 48+
+  - node 6+
 
 ## Example
 

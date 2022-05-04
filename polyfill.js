@@ -1,5 +1,7 @@
 'use strict';
 
+var MAX_SAFE_INTEGER = require('es-abstract/helpers/maxSafeInteger');
+
 var implementation = require('./implementation');
 
 module.exports = function getPolyfill() {
@@ -25,6 +27,20 @@ module.exports = function getPolyfill() {
 			return implementation;
 		} catch (e) {
 			if (!e || e.name !== 'TypeError') {
+				return implementation;
+			}
+		}
+
+		var spreadableHasPoisonedIndex = { length: MAX_SAFE_INTEGER };
+		spreadableHasPoisonedIndex[Symbol.isConcatSpreadable] = true;
+		Object.defineProperty(spreadableHasPoisonedIndex, 0, {
+			get: function () { throw new SyntaxError(); }
+		});
+		try {
+			[].concat(spreadableHasPoisonedIndex);
+			return implementation;
+		} catch (e) {
+			if (!e || e.name !== 'SyntaxError') {
 				return implementation;
 			}
 		}

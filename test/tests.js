@@ -1,6 +1,8 @@
 'use strict';
 
 var hasSymbols = require('has-symbols')();
+var supportsDescriptors = require('define-properties').supportsDescriptors;
+var MAX_SAFE_INTEGER = require('es-abstract/helpers/maxSafeInteger');
 
 var canDistinguishSparseFromUndefined = 0 in [undefined]; // IE 6 - 8 have a bug where this returns false.
 
@@ -92,6 +94,22 @@ module.exports = function (concat, t) {
 			[1, 2, 3, , undefined, 4, nonSpreadableArray, arrayLike, 9, 0], // eslint-disable-line no-sparse-arrays
 			'megacombo works'
 		);
+
+		st.test('poisoned getter', { skip: !supportsDescriptors }, function (s2t) {
+			var spreadableHasPoisonedIndex = { length: MAX_SAFE_INTEGER };
+			spreadableHasPoisonedIndex[Symbol.isConcatSpreadable] = true;
+			Object.defineProperty(spreadableHasPoisonedIndex, 0, {
+				get: function () { throw new SyntaxError(); }
+			});
+
+			s2t['throws'](
+				function () { concat([], spreadableHasPoisonedIndex); },
+				SyntaxError,
+				'[].concat(spreadableHasPoisonedIndex) throws by getting index 0'
+			);
+
+			s2t.end();
+		});
 
 		st.end();
 	});
