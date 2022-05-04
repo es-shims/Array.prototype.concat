@@ -5,6 +5,8 @@ var supportsDescriptors = require('define-properties').supportsDescriptors;
 var MAX_SAFE_INTEGER = require('es-abstract/helpers/maxSafeInteger');
 
 var canDistinguishSparseFromUndefined = 0 in [undefined]; // IE 6 - 8 have a bug where this returns false.
+// eslint-disable-next-line no-sparse-arrays, array-bracket-spacing
+var holesExist = !(0 in [, ]); // FF 3 fails this check
 
 module.exports = function (concat, t) {
 	var array = [1, 2];
@@ -27,15 +29,20 @@ module.exports = function (concat, t) {
 		sparseArray,
 		'holes are preserved: receiver'
 	);
-	t.equal(1 in concat(sparseArray), false, 'hole is present: receiver');
-	t.equal(2 in concat(sparseArray), canDistinguishSparseFromUndefined, 'undefined is present: receiver');
+
+	if (holesExist) {
+		t.equal(1 in concat(sparseArray), false, 'hole is present: receiver');
+		t.equal(2 in concat(sparseArray), canDistinguishSparseFromUndefined, 'undefined is present: receiver');
+	}
 	t.deepEqual(
 		concat([], sparseArray),
 		sparseArray,
 		'holes are preserved: argument'
 	);
-	t.equal(1 in concat([], sparseArray), false, 'hole is present: argument');
-	t.equal(2 in concat([], sparseArray), canDistinguishSparseFromUndefined, 'undefined is present: argument');
+	if (holesExist) {
+		t.equal(1 in concat([], sparseArray), false, 'hole is present: argument');
+		t.equal(2 in concat([], sparseArray), canDistinguishSparseFromUndefined, 'undefined is present: argument');
+	}
 
 	t.deepEqual(
 		concat(arrayLike),
