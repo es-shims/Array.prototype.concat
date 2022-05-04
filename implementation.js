@@ -72,3 +72,5 @@ module.exports = function concat(items) {
 
 	return A; // step 7
 };
+
+module.exports.prototype = undefined;
