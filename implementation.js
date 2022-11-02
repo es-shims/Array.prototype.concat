@@ -2,15 +2,15 @@
 
 var GetIntrinsic = require('get-intrinsic');
 
-var ArraySpeciesCreate = require('es-abstract/2021/ArraySpeciesCreate');
-var CreateDataPropertyOrThrow = require('es-abstract/2021/CreateDataPropertyOrThrow');
-var Get = require('es-abstract/2021/Get');
-var HasProperty = require('es-abstract/2021/HasProperty');
-var IsConcatSpreadable = require('es-abstract/2021/IsConcatSpreadable');
-var LengthOfArrayLike = require('es-abstract/2021/LengthOfArrayLike');
-var Set = require('es-abstract/2021/Set');
-var ToObject = require('es-abstract/2021/ToObject');
-var ToString = require('es-abstract/2021/ToString');
+var ArraySpeciesCreate = require('es-abstract/2022/ArraySpeciesCreate');
+var CreateDataPropertyOrThrow = require('es-abstract/2022/CreateDataPropertyOrThrow');
+var Get = require('es-abstract/2022/Get');
+var HasProperty = require('es-abstract/2022/HasProperty');
+var IsConcatSpreadable = require('es-abstract/2022/IsConcatSpreadable');
+var LengthOfArrayLike = require('es-abstract/2022/LengthOfArrayLike');
+var Set = require('es-abstract/2022/Set');
+var ToObject = require('es-abstract/2022/ToObject');
+var ToString = require('es-abstract/2022/ToString');
 
 var MAX_SAFE_INTEGER = require('es-abstract/helpers/maxSafeInteger');
 
