@@ -2,21 +2,20 @@
 
 var GetIntrinsic = require('get-intrinsic');
 
-var ArraySpeciesCreate = require('es-abstract/2022/ArraySpeciesCreate');
-var CreateDataPropertyOrThrow = require('es-abstract/2022/CreateDataPropertyOrThrow');
-var Get = require('es-abstract/2022/Get');
-var HasProperty = require('es-abstract/2022/HasProperty');
-var IsConcatSpreadable = require('es-abstract/2022/IsConcatSpreadable');
-var LengthOfArrayLike = require('es-abstract/2022/LengthOfArrayLike');
-var Set = require('es-abstract/2022/Set');
-var ToObject = require('es-abstract/2022/ToObject');
-var ToString = require('es-abstract/2022/ToString');
+var ArraySpeciesCreate = require('es-abstract/2023/ArraySpeciesCreate');
+var CreateDataPropertyOrThrow = require('es-abstract/2023/CreateDataPropertyOrThrow');
+var Get = require('es-abstract/2023/Get');
+var HasProperty = require('es-abstract/2023/HasProperty');
+var IsConcatSpreadable = require('es-abstract/2023/IsConcatSpreadable');
+var LengthOfArrayLike = require('es-abstract/2023/LengthOfArrayLike');
+var Set = require('es-abstract/2023/Set');
+var ToObject = require('es-abstract/2023/ToObject');
+var ToString = require('es-abstract/2023/ToString');
 
+var forEach = require('es-abstract/helpers/forEach');
 var MAX_SAFE_INTEGER = require('es-abstract/helpers/maxSafeInteger');
 
 var $TypeError = GetIntrinsic('%TypeError%');
-
-var forEach = require('es-abstract/helpers/forEach');
 
 var callBound = require('call-bind/callBound');
 
