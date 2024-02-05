@@ -1,7 +1,5 @@
 'use strict';
 
-var GetIntrinsic = require('get-intrinsic');
-
 var ArraySpeciesCreate = require('es-abstract/2023/ArraySpeciesCreate');
 var CreateDataPropertyOrThrow = require('es-abstract/2023/CreateDataPropertyOrThrow');
 var Get = require('es-abstract/2023/Get');
@@ -15,10 +13,8 @@ var ToString = require('es-abstract/2023/ToString');
 var forEach = require('es-abstract/helpers/forEach');
 var MAX_SAFE_INTEGER = require('es-abstract/helpers/maxSafeInteger');
 
-var $TypeError = GetIntrinsic('%TypeError%');
-
+var $TypeError = require('es-errors/type');
 var callBound = require('call-bind/callBound');
-
 var isString = require('is-string');
 
 // Check failure of by-index access of string characters (IE < 9) and failure of `0 in boxedString` (Rhino)
