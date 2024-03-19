@@ -2,7 +2,7 @@
 
 var hasSymbols = require('has-symbols')();
 var supportsDescriptors = require('define-properties').supportsDescriptors;
-var MAX_SAFE_INTEGER = require('es-abstract/helpers/maxSafeInteger');
+var MAX_SAFE_INTEGER = require('es-constants/Number.MAX_SAFE_INTEGER');
 
 var canDistinguishSparseFromUndefined = 0 in [undefined]; // IE 6 - 8 have a bug where this returns false.
 // eslint-disable-next-line no-sparse-arrays, array-bracket-spacing

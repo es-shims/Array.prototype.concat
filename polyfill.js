@@ -1,6 +1,6 @@
 'use strict';
 
-var MAX_SAFE_INTEGER = require('es-abstract/helpers/maxSafeInteger');
+var MAX_SAFE_INTEGER = require('es-constants/Number.MAX_SAFE_INTEGER');
 
 var implementation = require('./implementation');
 

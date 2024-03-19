@@ -72,7 +72,10 @@
 	"dependencies": {
 		"call-bind": "^1.0.5",
 		"define-properties": "^1.2.1",
-		"es-abstract": "^1.22.3",
+		"es-abstract": "^1.22.5",
+		"es-constants": "^1.0.1",
+		"es-errors": "^1.3.0",
+		"es-object-atoms": "^1.0.0",
 		"is-string": "^1.0.7"
 	},
 	"testling": {
