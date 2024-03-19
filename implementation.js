@@ -1,14 +1,14 @@
 'use strict';
 
-var ArraySpeciesCreate = require('es-abstract/2023/ArraySpeciesCreate');
-var CreateDataPropertyOrThrow = require('es-abstract/2023/CreateDataPropertyOrThrow');
-var Get = require('es-abstract/2023/Get');
-var HasProperty = require('es-abstract/2023/HasProperty');
-var IsConcatSpreadable = require('es-abstract/2023/IsConcatSpreadable');
-var LengthOfArrayLike = require('es-abstract/2023/LengthOfArrayLike');
-var Set = require('es-abstract/2023/Set');
+var ArraySpeciesCreate = require('es-abstract/2024/ArraySpeciesCreate');
+var CreateDataPropertyOrThrow = require('es-abstract/2024/CreateDataPropertyOrThrow');
+var Get = require('es-abstract/2024/Get');
+var HasProperty = require('es-abstract/2024/HasProperty');
+var IsConcatSpreadable = require('es-abstract/2024/IsConcatSpreadable');
+var LengthOfArrayLike = require('es-abstract/2024/LengthOfArrayLike');
+var Set = require('es-abstract/2024/Set');
 var ToObject = require('es-object-atoms/ToObject');
-var ToString = require('es-abstract/2023/ToString');
+var ToString = require('es-abstract/2024/ToString');
 
 var forEach = require('es-abstract/helpers/forEach');
 var MAX_SAFE_INTEGER = require('es-abstract/helpers/maxSafeInteger');
